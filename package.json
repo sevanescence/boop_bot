@@ -1,0 +1,30 @@
+{
+  "name": "boop_bot",
+  "version": "1.0.0",
+  "description": "Bot for my development server",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MakotoMiyamoto/boop_bot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "nodejs",
+    "javascript",
+    "node"
+  ],
+  "author": "MakotoMiyamoto",
+  "license": "GPL-3.0+",
+  "bugs": {
+    "url": "https://github.com/MakotoMiyamoto/boop_bot/issues"
+  },
+  "homepage": "https://github.com/MakotoMiyamoto/boop_bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
+  }
+}
