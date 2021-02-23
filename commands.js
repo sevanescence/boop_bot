@@ -38,7 +38,11 @@ const remind = {
  * @param {Number} len
  *  @return {Array<String>} */
 const splitArgs = (string, len) => {
-    return string.replace(/^\$b\s.+?(\s|$)/, '').split(/\s/, len);
+    let args = string.replace(/^\$b\s.+?(\s|$)/, '').split(/\s/);
+    for (let i = len; i < args.length; args.pop()) {
+        args[len-1] += ` ${args[i]}`
+    }
+    return args;
 }
 
 const commands = {
