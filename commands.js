@@ -36,12 +36,14 @@ const remind = {
 /** 
  * @param {String} string 
  * @param {Number} len
- *  @return {Array<String>} */
+ * @return {Array<String>} */
 const splitArgs = (string, len) => {
     let args = string.replace(/^\$b\s.+?(\s|$)/, '').split(/\s/);
-    for (let i = len; i < args.length; args.pop()) {
-        args[len-1] += ` ${args[i]}`
+    for (let i = len; i < args.length; i++) {
+        args[len-1] += ` ${args[i]}`;
     }
+    for (let i = len; i < args.length; args.pop());
+    console.log(args);
     return args;
 }
 
