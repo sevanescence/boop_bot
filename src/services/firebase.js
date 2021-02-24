@@ -7,7 +7,7 @@ var firestore;
 function initFirestore() {
     console.log('Connecting to Firestore...');
 
-    const config = require('./firebase/serviceAccountKey.json');
+    const config = require('../../firebase/serviceAccountKey.json');
     admin.initializeApp({
         credential: admin.credential.cert(config)
     });

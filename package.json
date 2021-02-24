@@ -4,7 +4,7 @@
   "description": "Bot for my development server",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon index"
+    "test": "nodemon src/index"
   },
   "repository": {
     "type": "git",
