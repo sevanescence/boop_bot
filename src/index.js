@@ -1,22 +1,18 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-require('dotenv').config();
-const path = require('path');
-const fs = require('fs');
+const env = require('dotenv');
+const config = env.config();
 
 const firebase = require('./services/firebase');
 const reminder = require('./services/reminderintervalhandler');
-
-const { CommandHandler } = require('./command/commandhandler');
-const stringutils = require('./command/stringutils');
-const commandHandler = new CommandHandler();
+const commandhandler = require('./command/commandhandler').commandhandler;
 
 // command handler
 client.on('message', message => {
     if (message.author.bot) return;
 
     if (message.content.match(/^\$b\s\S/)) {
-        const commandExists = commandHandler.commandCall(message);
+        const commandExists = commandhandler.commandCall(message);
         if (! commandExists) {
             message.channel.send(`\`${message.content}\` is not a valid command :T \`$b help\``);
         }
@@ -27,7 +23,7 @@ client.on('message', message => {
 client.once('ready', () => {
     firebase.initFirestore();
     reminder.initReminderInterval(client);
-    commandHandler.init(client);
+    commandhandler.init(client);
 
     console.log(`${client.user.username}#${client.user.discriminator} is online! Here's a list of servers I'm in:`);
 

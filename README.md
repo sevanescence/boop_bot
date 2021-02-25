@@ -39,7 +39,8 @@ If you're a bit lost and cannot decide what you want to try out, take a look
 at a couple of articles to give you some ideas:
 - UCF: [Top 10 Coding Projects For Beginners](https://bootcamp.ce.ucf.edu/blog/top-10-coding-projects-for-beginners/)
 - Medium: [12 Great Ideas for Programming Projects That People Will Use](https://betterprogramming.pub/12-ideas-for-programming-projects-too-dangerous-not-to-build-514e3212ab77) 
-- Linux Training Acdemy: [Over 1,500 Coding Project Ideas](https://www.linuxtrainingacademy.com/projects/)\
+- Linux Training Acdemy: [Over 1,500 Coding Project Ideas](https://www.linuxtrainingacademy.com/projects/)
+
 <br/>
 
 # Contributing
@@ -76,9 +77,13 @@ type `npm test` to start the bot.\
 <br/>
 
 # Changelog
-### 1.0.0
+### 1.0.0 - Feb 23, 2021
 - Initial release, added readme and restructured folders for readability
 and scalability.
+### 1.0.1 - Feb 24, 2021
+- Added printme command.
+- Reformatted commandhandler convention.
+- Patched up readme slightly. (I found some typos and such)
 
 # Roadmap
 \+ - Implemented\
@@ -94,7 +99,7 @@ TODO - Features
 - add multiple reminds support
 - add $b getreminds and $b removeremind
 - dynamic time support for $b remind (i.e. $b remind 2h30m clean room)
-- add printme command
++ add printme command
 ```
 
 ```diff
@@ -106,4 +111,5 @@ TODO - Meta
 - clean up packages (i.e. remove firestore from firebase.js)
 - optimize message embeds (save them to cache instead of re-creating every time a command is run)
 + encapsulate string functions into stringutils.js
++ restructure commandhandler to abide by javascript convention
 ```

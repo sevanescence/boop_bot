@@ -89,7 +89,9 @@ class CommandHandler {
     }
 }
 
+const commandhandler = new CommandHandler();
+
 module.exports = {
-    CommandHandler: CommandHandler,
+    commandhandler: commandhandler,
     CommandExecutor: CommandExecutor
-}
+};
