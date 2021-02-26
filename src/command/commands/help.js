@@ -10,7 +10,7 @@ command.setCommandExecutor(message => {
     embed.color = 0x27ace6;
     embed.title = "Boop Bot Commands";
     embed.description = 
-        correctMultiLineString(
+        stringutils.correctMultiLineString(
             `\`\`\`sh
             $b q <text> - Ask a question!
             $b boop - *boop!*

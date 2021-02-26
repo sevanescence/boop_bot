@@ -1,3 +1,5 @@
+console.log('Importing packages...')
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const env = require('dotenv');
@@ -35,4 +37,5 @@ client.once('ready', () => {
     }
 });
 
+console.log('Establishing connection...')
 client.login(process.env.TOKEN);

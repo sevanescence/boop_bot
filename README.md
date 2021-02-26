@@ -84,6 +84,9 @@ and scalability.
 - Added printme command.
 - Reformatted commandhandler convention.
 - Patched up readme slightly. (I found some typos and such)
+### 1.0.2 - Feb 25, 2021
+- Reminders <30s are saved to memory as timeouts so they can be
+send sooner.
 
 # Roadmap
 \+ - Implemented\

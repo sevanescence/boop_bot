@@ -68,7 +68,7 @@ class CommandHandler {
     commandCall(message) {
         const label = stringutils.getLabel(message.content);
         const command = this.commands.get(label);
-        if (! (label || command)) {
+        if (! command) {
             return false;
         }
 

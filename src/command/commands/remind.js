@@ -3,6 +3,7 @@ const { CommandExecutor } = require('../commandhandler');
 const firebase = require('firebase-admin');
 const { firestore } = require('firebase-admin');
 const stringutils = require('../stringutils');
+const reminder = require('../../services/reminderintervalhandler');
 
 const command = new CommandExecutor();
 
@@ -50,14 +51,22 @@ command.setCommandExecutor(message => {
         return true;
     }
 
-    let durationMillis = parseInt(args[0].match(numRegex)[0] * parseInt(remind.timeAliases[alias]));
-
     const row = {
         id: message.author.id,
-        time: Date.now() + durationMillis,
+        time: Date.now(),
         msg: args[1],
         channel: message.channel.id
     }
+
+    let durationMillis = parseInt(args[0].match(numRegex)[0] * parseInt(remind.timeAliases[alias]));
+    if (durationMillis < 30000) {
+        message.react('✅');
+        setTimeout(() => {
+            reminder.remindUser(message.client, row);
+        }, durationMillis);
+        return true;
+    }
+    row.time += durationMillis;
 
     var exists = false;
     firestore().collection('remind_users').doc(row.id).get().then(user => {
@@ -65,11 +74,13 @@ command.setCommandExecutor(message => {
         if (exists && parseInt(user?.get('time')) < Date.now()) {
             exists = false;
         } else if (exists) {
-            message.channel.send(`<@${row.id}>, you already have a reminder set! (multiple-reminders not yet implemented)`)
+            message.react('❌');
+            message.channel.send(`<@${row.id}>, you already have a reminder set! (multiple-reminders not yet implemented)`);
         }
     }).then(() => {
         if (! exists) firestore().collection('remind_users').doc(row.id).set(row).then(() => {
-            message.channel.send(`Remind <@${row.id}> in ${args[0]}${(() => { if (args[0].match(/(\d|\.)$/)) return 's'; else return '' })()} - ${args[1]}`);
+            message.react('✅');
+            //message.channel.send(`Remind <@${row.id}> in ${args[0]}${(() => { if (args[0].match(/(\d|\.)$/)) return 's'; else return '' })()} - ${args[1]}`);
         }).catch(err => {
             console.log(err);
             message.channel.send('An error occured in the console...');
