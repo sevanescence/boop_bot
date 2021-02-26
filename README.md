@@ -95,7 +95,7 @@ send sooner.
 TODO - Features
 + fix argument length ("some text" only saves "some")
 + throw error for invalid alias stamp
-- load reminders <30s to cache
++ load reminders <30s to cache
 - newline support in $b remind
 - update command help tab
 - clear expired reminders on bot startup
