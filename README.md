@@ -87,6 +87,10 @@ and scalability.
 ### 1.0.2 - Feb 25, 2021
 - Reminders <30s are saved to memory as timeouts so they can be
 send sooner.
+# 1.0.3 - Feb 26, 2021
+- Added error catcher to index.js (for no good reason, just wanted to follow good practices)
+- Cleaned up packages (removed redundant references, etc.)
+- I wasn't motivated to do much more today. I feel unmotivated at the moment. Hopefully that will change tomorrow.
 
 # Roadmap
 \+ - Implemented\
@@ -97,7 +101,7 @@ TODO - Features
 + throw error for invalid alias stamp
 + load reminders <30s to cache
 - newline support in $b remind
-- update command help tab
++ update command help tab
 - clear expired reminders on bot startup
 - add multiple reminds support
 - add $b getreminds and $b removeremind
@@ -110,9 +114,10 @@ TODO - Meta
 + Categorize each section of the application into separate folders
 + Encapsulate commands in their own files, all in /commands/
 + create folder /src/ and put all code in there
-- build coherent readme (talk about a-commit-a-day and stuff)
-- clean up packages (i.e. remove firestore from firebase.js)
++ build coherent readme (talk about a-commit-a-day and stuff)
++ clean up packages (i.e. remove firestore from firebase.js)
 - optimize message embeds (save them to cache instead of re-creating every time a command is run)
 + encapsulate string functions into stringutils.js
 + restructure commandhandler to abide by javascript convention
+- clean up intellisense in commandhandler.js
 ```

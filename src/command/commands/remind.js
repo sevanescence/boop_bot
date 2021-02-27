@@ -19,6 +19,7 @@ const remind = {
 
 command.setCommandExecutor(message => {
     const args = stringutils.splitArgs(message.content, 2);
+    console.log(message.content)
 
     if (args.length < 2) {
         message.channel.send('Argument must have at least two arguments.\nExample: `$b remind 2h clean the litter box.`');

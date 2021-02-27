@@ -17,6 +17,5 @@ function initFirestore() {
 }
 
 module.exports = {
-    initFirestore: initFirestore,
-    firestore: firestore
+    initFirestore: initFirestore
 };

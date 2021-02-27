@@ -37,5 +37,10 @@ client.once('ready', () => {
     }
 });
 
+client.once('error', error => {
+    console.log(`Error ${error.name}:\n${error.message}\n${error.stack || 'No stack trace available.'}`);
+    client.destroy();
+});
+
 console.log('Establishing connection...')
 client.login(process.env.TOKEN);
